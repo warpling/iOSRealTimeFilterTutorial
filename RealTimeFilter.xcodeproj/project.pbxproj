@@ -222,7 +222,7 @@
 				TargetAttributes = {
 					D67CFB511C30E6FA005AE284 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 9UQ4BP42V9;
+						DevelopmentTeam = JVBMY6T275;
 					};
 					D67CFB6D1C30E6FA005AE284 = {
 						CreatedOnToolsVersion = 7.1;
@@ -430,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JVBMY6T275;
 				INFOPLIST_FILE = RealTimeFilter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -442,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JVBMY6T275;
 				INFOPLIST_FILE = RealTimeFilter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -517,6 +519,7 @@
 				D67CFB841C30E6FA005AE284 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D67CFB851C30E6FA005AE284 /* Build configuration list for PBXNativeTarget "RealTimeFilterTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +528,7 @@
 				D67CFB871C30E6FA005AE284 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D67CFB881C30E6FA005AE284 /* Build configuration list for PBXNativeTarget "RealTimeFilterUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +537,7 @@
 				D67CFB8A1C30E6FA005AE284 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

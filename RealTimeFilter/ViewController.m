@@ -10,18 +10,22 @@
 #import <AVFoundation/AVFoundation.h>
 #import <CoreImage/CoreImage.h>
 #import <GLKit/GLKit.h>
+#import <SpriteKit/SpriteKit.h>
 #import "AppDelegate.h"
 
 @interface ViewController () <AVCaptureVideoDataOutputSampleBufferDelegate>
 
-@property GLKView *videoPreviewView;
-@property CIContext *ciContext;
-@property EAGLContext *eaglContext;
+@property (strong, nonatomic) GLKView *videoPreviewView;
+@property (strong, nonatomic) CIContext *ciContext;
+@property (strong, nonatomic) EAGLContext *eaglContext;
 @property CGRect videoPreviewViewBounds;
 
-@property AVCaptureDevice *videoDevice;
-@property AVCaptureSession *captureSession;
-@property dispatch_queue_t captureSessionQueue;
+@property (strong, nonatomic) AVCaptureDevice *videoDevice;
+@property (strong, nonatomic) AVCaptureSession *captureSession;
+@property (strong, nonatomic) dispatch_queue_t captureSessionQueue;
+
+@property (strong, nonatomic) SKView *skView;
+@property (strong, nonatomic) SKScene *skScene;
 
 @end
 
@@ -71,6 +75,8 @@
     {
         NSLog(@"No device with AVMediaTypeVideo");
     }
+    
+    [self addSKView];
 }
 
 - (void)_start
@@ -195,6 +201,30 @@
         [_ciContext drawImage:filteredImage inRect:_videoPreviewViewBounds fromRect:drawRect];
     
     [_videoPreviewView display];
+}
+
+- (void) addSKView {
+    self.skView = [[SKView alloc] initWithFrame:self.view.bounds];
+    [self.skView setBackgroundColor:[UIColor clearColor]];
+    self.skView.ignoresSiblingOrder = YES;
+    self.skView.allowsTransparency = YES;
+    self.skView.showsFPS = YES;
+    self.skView.showsNodeCount = YES;
+    
+    self.skScene = [SKScene sceneWithSize:CGSizeMake(100, 100)];
+    [self.skScene setBackgroundColor:[UIColor clearColor]];
+
+    CGSize squareSize = CGSizeMake(50, 50);
+    SKShapeNode *square = [SKShapeNode shapeNodeWithRectOfSize:squareSize];
+    [square setName:@"module"];
+    [square setFillColor:[UIColor magentaColor]];
+    
+    [square setPhysicsBody:[SKPhysicsBody bodyWithRectangleOfSize:squareSize]];
+    square.physicsBody.dynamic = NO;
+    
+    [self.skScene addChild:square];
+    [self.skView presentScene:self.skScene];
+    [self.view addSubview:self.skView];
 }
 
 @end
